@@ -1,0 +1,21 @@
+def typeOfTriangle(side1, side2, side3):
+    sumSide= side1+side2+side3
+    maxSide = max(side3, side2, side1)
+    minSide = min(side3, side2, side1)
+    avgSide = sumSide-maxSide-minSide
+    if side1+side2<=side3 or side1+side3<=side2 or side2+side3<=side1:
+        return "Такого треугольника не существует"
+    if side1==side2==side3:
+        return "Равносторонний"
+    elif side1==side2 or side1==side3 or side2==side3:
+        return "Равнобедренный"
+    elif (pow(maxSide, 2))==(pow(minSide, 2)+pow(avgSide, 2)):
+        return "Прямоугольный"
+    else:
+        return "Разносторонний"
+
+side1 = abs(float(input("Введите длину первой стороны треугольника - ")))
+side2 = abs(float(input("Введите длину второй стороны треугольника - ")))
+side3 = abs(float(input("Введите длину третьей стороны треугольника - ")))
+result = typeOfTriangle(side1, side2, side3)
+print("Труегольник: " ,result)
